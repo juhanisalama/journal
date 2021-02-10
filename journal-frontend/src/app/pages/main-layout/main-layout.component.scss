@@ -1,0 +1,43 @@
+@import "../../../main-styles.scss";
+
+// Layoutin tyylit
+// Layouttiin käytämme CSS Flexboxia.
+.layout-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  // Tämä deklaraatio poistaa vierityspalkit sovellusikkunasta
+  overflow: hidden;
+
+  // Toistensa sisälle "nestattuja" deklaraatioita voidaan tehdä vain SASS:illa / SCSS:llä.
+  .page-content {
+    flex-grow: 1;
+    // Tämä mahdollistaa sisällön vierittämisen
+    overflow-y: scroll;
+  }
+}
+
+.top-bar {
+  width: 100%;
+  height: 70px;
+  // Laitetaan yläpalkin väriksi gradientti
+  background: linear-gradient(to right, $tart-orange, $navy-blue, $tart-orange);
+
+  box-shadow: 0px 0px 30px 0px rgba(black, 0.5);
+
+  display: flex;
+  flex-shrink: 0; // Estää yläpalkkia kutistumasta jos muut flex-itemit
+  // kasvavat ja vievät enemmän tilaa
+
+  // keskitetään lapsielementti eli otsikko/sovelluksen nimi
+  justify-content: center;
+  align-items: center;
+
+  // lapsielementin muotoilu
+  h1 {
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+  }
+}

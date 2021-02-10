@@ -1,0 +1,22 @@
+.main-container {
+  /* Nämä deklaraatiot määrittävät, että main-containerin sisällöt
+    ovat keskitetty eivätkä vie koko ikkunan leveyttä */
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+  padding-top: 70px;
+}
+
+.search-bar-container {
+  opacity: 0.8;
+}
+
+.entries-list {
+  margin-top: 50px;
+}
+
+app-journal-entry {
+  display: block;
+  margin-bottom: 25px;
+}

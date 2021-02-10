@@ -1,0 +1,43 @@
+/* Sovelluksessa hyödynnetään Bulman SCSS-frameworkia, sillä se on muun muassa
+responsiivisempi ja intuitiivisempi käyttää kuin esimerkiksi Bootstrap. */
+
+// Muutetaan Bulma -frameworkin muuttujia ja lisätään globaalit tyylit
+
+/* Alla oleva koodi on suurelta osin napattu suoraan Bulman dokumentaatiosta,
+vain muuttujia on säädetty. */
+
+@charset "utf-8";
+
+// Import a Google Font
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Montserrat&display=swap");
+
+// Set your brand colors
+$navy-blue: #03045e;
+$tart-orange: #f0544f;
+$queen-blue: #577590;
+$lavender: #cfbff7;
+$light: #c6d8d3;
+
+// Update Bulma's global variables
+$family-cursive: "Comfortaa", cursive;
+$family-sans-serif: "Montserrat", sans-serif;
+$primary: $navy-blue;
+$link: $queen-blue;
+
+// Update some of Bulma's component variables
+$body-background-color: $light;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-background-color: #e8ebf7;
+$input-shadow: none;
+
+/* Globaalit tyylit */
+
+html,
+body {
+  height: 100%;
+  // !importantilla jyrätään kaikki spesifimmätkin deklaraatiot jotka koskevat
+  // html:aa ja bodya.
+  font-size: 20px !important;
+  overflow: hidden !important;
+}

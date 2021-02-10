@@ -1,0 +1,30 @@
+<!-- Main-container sisältää sovelluksen koko pääasiallisen sisällön, eli
+ns. "päiväkirjamerkinnät" sekä painikkeet ja hakukentän. -->
+
+<div class="main-container">
+
+
+<!-- Tämäkin hakukenttä löytyi kätevästi suoraan pienillä 
+    muutoksilla Bulma-frameworkin dokumentaatiosta. 
+tässä hyödynnetään myös Font Awesome -ikonia joka on tuotu index.html:ään,
+jolloin sitä voidaan käyttää kaikissa sovelluksen layouteissa. -->
+
+<div class="search-bar-container">
+    <div class="field">
+        <p class="control has-icons-left">
+          <input class="input" type="text" placeholder="Search entries">
+          <span class="icon is-small is-left">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+</div>
+
+<!--Täällä ovat "päiväkirjamerkinnät"-->
+<div class="entries-list">
+<app-journal-entry title="Testing one twoo thre" body="Testing lol are u mad"></app-journal-entry>
+<app-journal-entry></app-journal-entry>
+<app-journal-entry></app-journal-entry>
+<app-journal-entry></app-journal-entry>
+</div>
+</div>

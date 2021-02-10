@@ -1,0 +1,93 @@
+@import "../../main-styles.scss";
+
+.journal-entry-container {
+  position: relative;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0px 2px 15px 5px rgba(black, 0.08);
+
+  // Transitionilla animoidaan tilan vaihdos sulavaksi
+  transition: box-shadow 0.15s ease-out;
+
+  // & on SASS-operaattori, jonka avulla pseudo-luokalla (hover)
+  // voidaan viitata parent selectoriin. Tässä tapauksessa
+  // :hoverin jälkeen tulevat deklaraatiot muuttavat päiväkirjamerkinnän reunoja
+  // sumeasta varjosta tarkaksi ääriviivaksi kun käyttäjä vie hiiren merkinnän ylle.
+  &:hover {
+    .x-button {
+      opacity: 1;
+      transition-delay: 0.4s;
+      transform: scale(1);
+    }
+    cursor: pointer;
+    box-shadow: 0px 0px 0px 3px rgba(black, 0.065);
+  }
+
+  .journal-entry-content {
+    padding: 25px;
+
+    .journal-entry-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: $lavender;
+    }
+
+    .journal-entry-body {
+      position: relative;
+      font-family: sans-serif;
+      max-height: 80px;
+      overflow: hidden;
+      padding-top: 15px;
+      font-size: 18px;
+      color: #888888;
+
+      .fade-out {
+        position: absolute;
+        pointer-events: none;
+        bottom: 0;
+        height: 50%;
+        width: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(white, 0) 0%,
+          rgba(white, 0.8),
+          50%,
+          white 100%
+        );
+      }
+    }
+  }
+}
+
+// Päiväkirjamerkinnän poistamisnapin tyylit
+// position: absolute -deklaraatiolla voidaan määrittää pikselin tarkkuudella
+// napin sijainti parent-luokan sisällä, tässä tapauksessa journal-entry-container
+.x-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  height: 25px;
+  width: 25px;
+
+  background-color: rgb(255, 248, 244);
+  border-radius: 4px;
+  background-image: url(../../assets/close.svg);
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  transition: opacity 0.3s ease-out, transform 0.2s ease-out;
+
+  // Sulkunappi on oletuksella piilossa ja tulee esiin ainoastaan kun käyttäjä
+  // vie kursorin päiväkirjamerkinnän päälle
+  opacity: 0;
+  transform: scale(0.3);
+
+  &:hover {
+    background-color: darken(rgb(255, 248, 244), 2%);
+  }
+
+  &:active {
+    background-color: darken(rgb(255, 248, 244), 4%);
+  }
+}

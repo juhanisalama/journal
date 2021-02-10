@@ -1,0 +1,22 @@
+<!-- Päiväkirjamerkintöjen markuppi-->
+
+<!-- Risuaidalla saadaan luokasta template-muuttuja, jota voidaan
+sitten käyttää esim. componentissa -->
+<div #container class="journal-entry-container">
+
+
+    <div class="journal-entry-content">
+        <h1 class="journal-entry-title">{{ title }}</h1>
+
+    <div #bodyText class="journal-entry-body">{{ body }} 
+
+    <!-- Tällä luokalla saadaan aikaan efekti, jossa teksti
+         liukuu läpinäkyväksi -->
+        <div #fade class="fade-out"></div>
+    </div>
+
+
+    </div>
+
+    <div class="x-button"></div>
+</div>
