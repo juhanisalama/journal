@@ -25,13 +25,18 @@
 
   .journal-entry-content {
     padding: 25px;
+    width: 400px;
 
     .journal-entry-title {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: bold;
       color: $lavender;
     }
-
+    .journal-entry-date {
+      font-size: 18px;
+      color: $lavender;
+      padding-top: 10px;
+    }
     .journal-entry-body {
       position: relative;
       font-family: sans-serif;

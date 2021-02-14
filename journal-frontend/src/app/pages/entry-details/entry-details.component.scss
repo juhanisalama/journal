@@ -1,0 +1,18 @@
+.form-container {
+  max-width: 500px;
+  margin: auto;
+  padding-top: 40px;
+}
+
+// Otsikko (title) on pakollinen. Jos titlestä puuttuu syöte,
+// alla olevat tyylit otetaan käyttöön title-lomakkeessa.
+
+input,
+textarea {
+  &.ng-invalid.ng-touched {
+    border-color: red;
+    &:focus {
+      box-shadow: 0px 0px 0px 2px rgba(red, 0.1);
+    }
+  }
+}

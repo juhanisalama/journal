@@ -22,9 +22,16 @@ jolloin sitä voidaan käyttää kaikissa sovelluksen layouteissa. -->
 
 <!--Täällä ovat "päiväkirjamerkinnät"-->
 <div class="entries-list">
-<app-journal-entry title="Testing one twoo thre" body="Testing lol are u mad"></app-journal-entry>
-<app-journal-entry></app-journal-entry>
-<app-journal-entry></app-journal-entry>
-<app-journal-entry></app-journal-entry>
+<app-journal-entry *ngFor="let entry of entries; index as i"
+[link] ="i" 
+[title]="entry.title" [date]="entry.date" 
+[body]="entry.body"></app-journal-entry>
+
 </div>
+
+<!-- Sovelluksen navigaatio. Tässäkin hyödynnetään Bulman valmiita luokkia. -->
+
+<button class="button floating-add-button is-primary" routerLink="new">New entry</button>
+
+
 </div>

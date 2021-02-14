@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
-import { parse } from 'path';
+import { AfterViewInit, Component, EventEmitter, ElementRef, Input, Output, Renderer2, ViewChild } from '@angular/core';
+// import * as EventEmitter from 'events';
+// import { parse } from 'path';
 
 @Component({
   selector: 'app-journal-entry',
@@ -9,7 +10,11 @@ import { parse } from 'path';
 export class JournalEntryComponent implements AfterViewInit {
 
   @Input() title!: string;
+  @Input() date!: any;
   @Input() body!: string;
+  @Input() link!: string;
+  
+  @Output('delete') deleteEvent: EventEmitter<void> = new EventEmitter<void>();
 
   @ViewChild('fade', {static: true})
   fade!: ElementRef<HTMLElement>;
@@ -30,6 +35,11 @@ export class JournalEntryComponent implements AfterViewInit {
       this.renderer.setStyle(this.fade!.nativeElement, 'display', 'none');
     }
 
-  }
 
+     
+  }
+// Merkinnän deletoinnin logiikka
+  OnXButtonClick(){
+    this.deleteEvent.emit();
+  }
 }

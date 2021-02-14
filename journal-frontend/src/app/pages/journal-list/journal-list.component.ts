@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EntriesService } from 'src/app/shared/entries.service';
+import { Entry } from 'src/app/shared/node.model'
 
 @Component({
   selector: 'app-journal-list',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JournalListComponent implements OnInit {
 
-  constructor() { }
+  entries: Entry[] = new Array<Entry>();
 
-  ngOnInit(): void {
+  constructor(private EntriesService: EntriesService) { }
+
+  ngOnInit() {
+    // Hae kaikki merkinnät EntriesServicestä
+    this.entries = this.EntriesService.getAll();
+
+
   }
 
 }

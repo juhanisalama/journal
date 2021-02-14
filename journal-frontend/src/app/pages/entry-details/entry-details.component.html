@@ -1,1 +1,52 @@
-<p>entry-details works!</p>
+<!-- Tänne rakennetaan lomakkeet, joilla luodaan päiväkirjamerkintöjä (entry).
+Käyttämällä Bulman valmiita luokkia lomakkeisiin ja nappeihin saadaan 
+hyvännäköiset tyylit kirjoittamatta erillistä CSS:ää. -->
+
+
+<!-- Kaikki lomakkeen osat sisällään pitävä container -->
+<div class="form-container">
+<form #entryForm="ngForm" (ngSubmit)="onSubmit(entryForm)">
+
+    <!-- Otsikko -->
+    <div class="field">
+        <label class="label">Title</label>
+            <div class="control">
+                <input type="text" name="title" [ngModel]="entry.title" required class="input">
+            </div>
+        </div>
+  
+<br>
+
+<!-- Päivämäärä -->
+<div class="field">
+    <label class="label">Date</label>
+        <div class="control">
+            <input type="date" class="input" name="date" [ngModel]="entry.date">
+        </div>
+    </div>
+
+    <!-- Leipäteksti -->
+    <br>
+    <div class="field">
+        <div class="label">Body</div>
+        <div class="control">
+            <textarea class="textarea" name="body" [ngModel]="entry.body"></textarea>
+        </div>
+    </div>
+
+    <!-- Peruutus- ja tallennusnapit -->
+    <div class="field is-grouped is-pulled-right">
+        <div class="control">
+            <button class="button is-text" type=button (click)="cancel()">Cancel</button>
+        </div>
+        <div class="control">
+            <!--Eräänlaista virheenkäsittelyä: Lomakkeen tallennus poistetaan käytöstä,
+                jos otsikkokenttä on jätetty tyhjäksi. -->
+            <button class="button is-success" type="submit" 
+            [disabled]="!entryForm.valid">Save</button>
+        </div>
+        
+    </div>
+</form>
+
+</div>
